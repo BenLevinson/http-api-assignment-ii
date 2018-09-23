@@ -12,6 +12,7 @@ const handlePost = (request, response, parsedUrl) => {
     const body = [];
       
     request.on('error', (err) => {
+      console.dir(err);
       res.statusCode = 400;
       res.end();
     });
@@ -60,6 +61,9 @@ const onRequest = (request, response) => {
         else {
             jsonHandler.notFound(request, response);
         }
+        break;
+      default:
+        jsonHandler.notFound(request, response);
         break;
   }
  
